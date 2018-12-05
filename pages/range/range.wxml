@@ -1,0 +1,49 @@
+<!--pages/myinfo/range/range.wxml-->
+<!--NameSpace-range-->
+<view class='range-container'>
+    <!-- 顶部Tab -->
+    <view class='ra-ca-bottom_tab'>
+        <scroll-view scroll-x class='ra-bottom-scroll'>
+            <block wx:for="{{article.tab}}">
+                <view bindtap='rcbBottomTab' data-index='{{index}}' 
+                    class='ra-scroll-tab' id="{{activeTab == index ? 'selected' : ''}}" 
+                    hover-class='ra-scroll-tab-hover' hover-start-time='0' hover-stay-time='100'>
+                    {{item}}
+                    <!-- 选中的Tab下划线  -->
+                    <view wx:if="{{activeTab == index}}" id='sellab'></view>
+                </view>
+            </block>
+        </scroll-view> 
+    </view>
+    <!-- Swiper容器 -->
+    <!-- current绑定的是顶部Tab数字索引  -->
+    <swiper circular='true' bindchange='swiperChange' current="{{activeTab}}"  
+        style="height:{{swiperHeight}}px;">
+        <!-- classIndex：分页Tab索引 classItem分页Tab内容  -->
+        <block wx:for="{{article.content}}" wx:for-index="classIndex" wx:for-item="classItem">
+            <!-- item-id绑定content英文索引 -->
+            <swiper-item item-id="{{classIndex}}">
+                <!--循环content对应Tab内容  -->
+                <!--data-classindex|data-artindex|data-cid绑定传入当前点击的Tab下的Item的cid  -->
+                <view wx:for="{{classItem}}" wx:for-index="artIndex" wx:for-item="artItem" 
+                    bindtap='bindCardViewTap' class='ra-co-cardview' 
+                    data-classindex="{{classIndex}}" 
+                    data-artindex="{{artIndex}}"
+                    data-cid="{{classItem[artIndex].cid}}">
+                    <!--page类型的项目有封面  -->
+                    <image wx:if="{{artItem.cover !== null}}" widthFix class='article-item-ele aie-cover' 
+                        src='{{artItem.cover}}'>
+                    </image>
+                    <!--标题、简介、修改时间  -->
+                    <text class='article-item-ele aie-title'>{{artItem.title}}</text>
+                    <text class='article-item-ele aie-intro'>{{artItem.intro}}</text>
+                    <text class='article-item-ele aie-timelable'>{{artItem.modified}}</text>
+                </view>
+                <!--作品页面和我页面不显示加载更多  -->
+                <view wx:if="{{!(classIndex == 'art' || classIndex == 'my') && getmore}}" 
+                      class='nomore-last-item' bindtap='loadMoreItems'>加载更多</view>
+                <view class='nomore-last-item'>i love frontend && coding</view>
+            </swiper-item>
+        </block>
+    </swiper>
+</view>

@@ -1,0 +1,12 @@
+{
+    "pages": [
+        "pages/range/range",
+        "pages/detail/detail"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#fff",
+        "navigationBarTitleText": "阿超的博客",
+        "navigationBarTextStyle": "black"
+    }
+}

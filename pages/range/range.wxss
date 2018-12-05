@@ -1,0 +1,110 @@
+/* pages/myinfo/cooperation/cooperation.wxss */
+page{
+  height: 100%;
+}
+.range-container{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  align-items: center;
+  background: #FFFFFF;
+}
+  swiper{
+    width: 100%;
+  }
+    swiper-item{
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: flex-start;
+      align-items: center;
+      overflow: auto;
+    }
+    swiper-item[item-id="0"]{
+        
+    }
+    .nomore-last-item{
+        width: 100%;
+        color: #9a9a9a;
+        font-size: 26rpx;
+        text-align: center;
+        margin-top: 2%;
+    }
+.ra-co-cardview{
+  width: 80%;
+  border-radius: 5rpx;
+  box-shadow: 0rpx 10rpx 40rpx 5rpx #E8E9F2;
+  margin: 2% 0;
+  padding: 5%;
+}
+.ra-co-cardview:first-child{
+    margin: 2% 0;
+}
+  .ra-card-scroll{
+    width: 98%;
+    height: 98%;
+  }
+  .article-item-ele{
+    display: block;
+    color: #9a9a9a;
+  }
+  .aie-cover{
+      width: 100%;
+      height: 375rpx;
+      border-radius: 15rpx; 
+      margin-bottom: 2%;
+  }
+  .aie-title{
+    color: #212832;
+    font-size: 34rpx;
+    font-weight: 600;
+    margin: 0 0 3% 0;
+  }
+  .aie-intro{
+    font-size: 26rpx;
+    margin: 0 0 3% 0;
+  }
+  .aie-timelable{
+    font-size: 26rpx;
+  }
+  .ra-ca-bottom_tab{
+    width: 100%;
+    height: 80rpx;
+    text-align: center;
+    align-self: stretch;
+  }
+    .ra-bottom-scroll{
+      width: 100%;
+      white-space: nowrap;
+      display: flex;
+      flex-flow: column nowrap;
+      justify-content: center;
+      align-content: center;
+    }
+      .ra-scroll-tab{
+        width: 15%;
+        height: 80rpx;
+        line-height: 70rpx;
+        color: rgba(0,0,0,0.7);
+        font-size: 32rpx;
+        text-align: center;
+        display: inline-block;
+        margin: 0 1%;
+      }
+      .ra-scroll-tab-hover{
+        background: #ECECEC;
+        border-radius: 10rpx;
+      }
+      #selected{
+        color: rgba(0,0,0,1);
+      }
+      #sellab{
+          width: 30%;
+          height: 5rpx;
+          background: #000F0F;
+          border-radius: 5rpx;
+          margin: 2% auto;
+      }
+
+

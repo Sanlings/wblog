@@ -1,0 +1,62 @@
+<!--pages/edit/edit.wxml-->
+<view class='detail-container'>
+    <scroll-view enable-back-to-top="true" scroll-y class='de-co-scroll'>
+        <!--文章详情头部信息-->
+        <view class='de-co-header'>
+            <!--文章标题-->
+            <view class='co-he-title'>
+                {{articleTitle}}
+            </view>
+            <!--作者信息/分类标签栏-->
+            <view class='he-au-info'>
+                <!-- 头像 -->
+                <!-- <image mode='widthFix' src="{{authorLogo}}}"></image> -->
+                <view class='au-info-text'>
+                    <!--昵称、发布时间、分类标签-->
+                    <text>{{articleAuthor}}</text>
+                    <text>{{articleTime}}</text>
+                    <!-- <view class='au-info-tag'>
+                        <text class='tag' wx:for="{{articleTag}}">{{item}}</text>
+                    </view> -->
+                </view>
+            </view>
+        </view>
+        <view class='de-co-body'>
+            <!--引入towxml-->
+            <import src="/towxml/entry.wxml"/>
+            <template is="entry" data="{{...articleContext}}"/> 
+        </view>
+        <view class='nomore-last-item'>i love frontend && coding</view>
+        <!--相关内容-->
+        <!-- <view class='de-co-footer'>
+            <text>{{Elment.aboutitemTitle}}</text>
+            <view class='co-fo-aboutitem' wx:for="{{BlogList[0].content.text.aboutitem}}">
+                <text>{{item}}</text>
+            </view>
+        </view> -->
+    </scroll-view>
+    <!--底部tab-->
+    <!-- <view class='de-co-bottombar'> -->
+        <!--评论框按钮-->
+        <!-- <view class='commentbox'>
+            <image src="{{Elment.commentbox}}"></image>
+            <text>{{Elment.CommentBoxText}}</text>
+        </view>  -->
+        <!--查看评论列表-->
+        <!-- <view class='commentbtn'>
+            <image src="{{Elment.commentbtn}}"></image>
+        </view>  -->
+        <!--收藏按钮-->
+        <!-- <view class='favorite'>
+            <image src="{{Elment.favorite}}"></image>
+        </view> -->
+        <!--点赞按钮-->
+        <!-- <view class='praise'>
+            <image src="{{Elment.praise}}"></image>
+        </view> -->
+        <!--分享按钮-->
+        <!-- <view class='share'>
+            <image src="{{Elment.share}}"></image>
+        </view> -->
+    <!-- </view> -->
+</view>
