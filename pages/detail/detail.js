@@ -89,7 +89,7 @@ Page({
 
     //请求
     wx.request({
-      url: 'https://blog.ideacom.cn/api/public/index.php/index/index/get_index',
+      url: app.globalData.api.detail,
       data: {
         cid: cid,
         range_start: '-1',

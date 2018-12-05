@@ -1,14 +1,33 @@
 //app.js
 const Towxml = require('/towxml/main');
+const _Gdata = {
+    api: {
+        // 获取openId, sessionKey, unionId接口
+        verify: 'https://' ,
+        
+        // 获取初始化数据
+        init: 'https://',
+        
+        // 获取文章内容
+        detail: 'https://',
+    },
+    conf: {
+        // 获取更多
+        getmore: true,
+        
+        // 分页长度
+        range_length: 15
+    }
+};
+
 App({
   onLaunch: function () {
       // 登录
       wx.login({
           success: res => {
               // 发送 res.code 到后台换取 openId, sessionKey, unionId
-              console.log(res);
               wx.request({
-                  url: 'http://localhost/proj_online_class/server/public/index.php/verify/verify/get_verify',
+                  url: _Gdata.api.verify,
                   method: 'post',
                   header: {
                       'content-type': 'application/x-www-form-urlencoded'
@@ -17,8 +36,7 @@ App({
                       code: res.code
                   },
                   success: function (result) {
-                      console.log('success', res.code);
-                      console.log('get', result.data);
+                      
                   }
               })
           }
@@ -26,6 +44,8 @@ App({
   },
   towxml:new Towxml(),
   globalData: {
-    userInfo: null
+    userInfo: null,
+    api: _Gdata.api,
+    conf: _Gdata.conf
   }
 })

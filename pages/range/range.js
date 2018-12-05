@@ -1,4 +1,5 @@
 // pages/myinfo/range/range.js
+const gdata = getApp().globalData;
 Page({
   /**
    * 绑定页面初始数据
@@ -16,13 +17,13 @@ Page({
     swiperHeight: '',
 
     /**获取更多btn */
-    getmore: true,
+    getmore: gdata.conf.getmore,
 
     /**分页起始值，每次分页会加上分页长度 */
     range_start: 0,
 
     /**分页长度 */
-    range_length: 10
+    range_length: gdata.conf.range_length
   },
   
   /**
@@ -126,7 +127,7 @@ Page({
     })
     //请求
     wx.request({
-      url: 'https://blog.ideacom.cn/api/public/index.php/index/index/get_index',
+      url: gdata.api.init,
       data: data,
       method: 'POST',
       header: {

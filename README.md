@@ -1,39 +1,55 @@
-# blog client
+# Wblog client
 
 #### 项目介绍
-{**以下是码云平台说明，您可以替换为您的项目简介**
-码云是开源中国推出的基于 Git 的代码托管平台（同时支持 SVN）。专为开发者提供稳定、高效、安全的云端软件开发协作平台
-无论是个人、团队、或是企业，都能够用码云实现代码托管、项目管理、协作开发。企业项目请看 [https://gitee.com/enterprises](https://gitee.com/enterprises)}
+Wblog 是一个极简风格的微信小程序博客，那段时间非常喜欢玩博客，看到小程序性能也是非常不错，于是制作了这个小程序。
 
-#### 软件架构
-软件架构说明
+
+#### 内容说明
+出于不要重复造轮子的思想，我没有再专门写后台面板。但是Wblog支持其他后台进行文章管理。
+
+目前支持[Typecho](http://typecho.org/)进行文章管理。
+虽然没有写专门的后端面板，但写了一套轻量级API进行数据交互[Wapi](https://github.com/Sanlings/wapi)
 
 
 #### 安装教程
 
-1. xxxx
-2. xxxx
-3. xxxx
+1. Clone项目到本地 
+```
+git clone https://github.com/Sanlings/wblog.git
+```
+2. 打开[微信开发者工具](https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html)。
+3. 登陆后，导入项目。
+4. 在`App.js`中配置相关API项、分页等。具体如下：
+```
+const _Gdata = {
+    api: {
+        // 获取openId, sessionKey, unionId接口
+        verify: 'https://' ,
+        
+        // 获取初始化数据
+        init: 'https://',
+        
+        // 获取文章内容
+        detail: 'https://',
+    },
+    conf: {
+        // 获取更多
+        getmore: true,
+        
+        // 分页长度
+        range_length: 15
+    }
+};
+```
 
 #### 使用说明
 
-1. xxxx
-2. xxxx
-3. xxxx
+1. 需要结合Typecho来进行数据管理
+2. WAPI内已经实现了所需API，只需做好相关部署即可
+3. API务必是HTTPS的
 
-#### 参与贡献
-
-1. Fork 本项目
-2. 新建 Feat_xxx 分支
-3. 提交代码
-4. 新建 Pull Request
-
-
-#### 码云特技
-
-1. 使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2. 码云官方博客 [blog.gitee.com](https://blog.gitee.com)
-3. 你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解码云上的优秀开源项目
-4. [GVP](https://gitee.com/gvp) 全称是码云最有价值开源项目，是码云综合评定出的优秀开源项目
-5. 码云官方提供的使用手册 [http://git.mydoc.io/](http://git.mydoc.io/)
-6. 码云封面人物是一档用来展示码云会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+#### 后续优化进度
+- 抽离所有可配置的配置项（第一次写的时候时间比较少，没有做到完全抽离）
+- 支持文章搜索
+- 支持切换`Markdown`与`html`富文本切换
+- 支持匿名评论功能
